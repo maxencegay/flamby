@@ -6,7 +6,7 @@ import android.util.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionHelper {
+public class ConnectionDatabaseHelper {
 
     public Connection connectionclass(String ip, String database, String user, String pass, String port){
 

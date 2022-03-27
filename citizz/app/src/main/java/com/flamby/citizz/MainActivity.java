@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView TextView = (TextView) findViewById(R.id.research);
         try{
-            ConnectionHelper connectionHelper = new ConnectionHelper();
+            ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
             connect = connectionHelper.connectionclass("10.0.2.2", "postgres", "postgres", "Titi01700!", "5432");
             if(connect!=null){
                 /*String query = "CREATE SCHEMA IF NOT EXISTS \"25410\"";
