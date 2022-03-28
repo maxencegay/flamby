@@ -1,25 +1,4 @@
 <resources>
     <string name="app_name">citizz</string>
     <string name="research_bar">research</string>
-
-
-    <!-- Report Page-->
-    <string name="add_cityzz_page_title">citizz</string>
-    <string-array name="item_cityzz_type">
-        <item>Object/Animal lost</item>
-        <item>Accident</item>
-        <item>Paid work</item>
-        <item>Other</item>
-
-    </string-array>
-
-    <string name="add_cityzz_description">@string/item_cityzz_description</string>
-
-
-    <!--Announce items-->
-
-    <string name="item_cityzz_description">Add a description</string>
-
-
-
 </resources>

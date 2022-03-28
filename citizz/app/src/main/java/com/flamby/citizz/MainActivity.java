@@ -2,27 +2,36 @@ package com.flamby.citizz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //for database
-    Connection connect;
-    String ConnectionResult="";
+    ImageButton searchbutton;
+    ImageButton accountbutton;
+    ImageButton citizzbutton;
+    ImageButton add_advertbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        searchbutton = (ImageButton) findViewById(R.id.researchbutton);
+        accountbutton = (ImageButton) findViewById(R.id.button_account);
+        citizzbutton = (ImageButton) findViewById(R.id.button_citizz);
+        add_advertbutton = (ImageButton) findViewById(R.id.button_add_advert);
+
+        accountbutton.setOnClickListener(this);
+        add_advertbutton.setOnClickListener(this);
+        searchbutton.setOnClickListener(this);
+
 
         List<Advert> AdvertList = new ArrayList<>();
         AdvertList.add(new Advert("Object/animal lost","dog lost","i have lost my thomas",
@@ -44,34 +53,21 @@ public class MainActivity extends AppCompatActivity {
         AdvertListview.setAdapter(new AdvertListAdapter(this,AdvertList));
     }
 
-    //for database
-    public void test(View v){
-
-        TextView TextView = (TextView) findViewById(R.id.research);
-        try{
-            ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
-            connect = connectionHelper.connectionclass("10.0.2.2", "postgres", "postgres", "Titi01700!", "5432");
-            if(connect!=null){
-                /*String query = "CREATE SCHEMA IF NOT EXISTS \"25410\"";
-                Statement st = connect.createStatement();
-                ResultSet rs = st.executeQuery(query);*/
-
-                String query = "SELECT * FROM public.course_master WHERE course_id = 1";
-                Statement st = connect.createStatement();
-                ResultSet rs = st.executeQuery(query);
-
-                while (rs.next()) {
-                    TextView.setText(rs.getString(2));
-                }
-
-            }
-            else{
-                ConnectionResult = "Check Connection";
-                TextView.setText(ConnectionResult);
-            }
-        }
-        catch (Exception ex){
-
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.button_account:
+                //Intent intentLoadNewActivity = new Intent(MainActivity.this, reportactivity.class);
+                //startActivity(intentLoadNewActivity);
+                break;
+            case R.id.button_add_advert:
+                //Intent intentLoadNewActivity2 = new Intent(MainActivity.this, accountactivity.class);
+                //startActivity(intentLoadNewActivity2);
+                break;
+            case R.id.researchbutton:
+                //Intent intentLoadNewActivity3 = new Intent(MainActivity.this, researchactivity.class);
+                //startActivity(intentLoadNewActivity3);
+                break;
         }
     }
 }
