@@ -50,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
         TextView TextView = (TextView) findViewById(R.id.research);
         try{
             ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
-            connect = connectionHelper.connectionclass("10.0.2.2", "postgres", "postgres", "Titi01700!", "5432");
+            //connect = connectionHelper.connectionclass("10.0.2.2", "postgres", "postgres", "", "5432");
+            connect = connectionHelper.connectionclass("45.155.170.1", "project_oop", "postgres", "VvBqZ6gshP", "24");
             if(connect!=null){
                 /*String query = "CREATE SCHEMA IF NOT EXISTS \"25410\"";
                 Statement st = connect.createStatement();
                 ResultSet rs = st.executeQuery(query);*/
 
-                String query = "SELECT * FROM public.course_master WHERE course_id = 1";
+                String query = "SELECT * FROM account;";
                 Statement st = connect.createStatement();
                 ResultSet rs = st.executeQuery(query);
 

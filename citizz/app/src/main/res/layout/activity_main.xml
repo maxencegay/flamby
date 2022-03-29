@@ -78,8 +78,9 @@
         android:id="@+id/button_add_advert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

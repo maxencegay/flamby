@@ -10,6 +10,8 @@ public class ConnectionDatabaseHelper {
 
     public Connection connectionclass(String ip, String database, String user, String pass, String port){
 
+
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         Connection connection = null;
