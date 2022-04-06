@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_add_advert:
                 //Intent intentLoadNewActivity2 = new Intent(MainActivity.this, reportactivity.class);
                 //startActivity(intentLoadNewActivity2);
-                //setContentView(R.layout.reportactivity);
+                setContentView(R.layout.main_report_activity);
                 break;
             case R.id.researchbutton:
                 //Intent intentLoadNewActivity3 = new Intent(MainActivity.this, researchactivity.class);
