@@ -48,6 +48,14 @@
 
             </LinearLayout>
 
+            <ImageButton
+                android:id="@+id/button_forpopup_advert"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_info"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"/>
+
         </LinearLayout>
 
     </RelativeLayout>
