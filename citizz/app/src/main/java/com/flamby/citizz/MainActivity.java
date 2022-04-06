@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,34 +47,56 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //for database
-    public void test(View v){
+    public void test(View v) throws SQLException {
 
         TextView TextView = (TextView) findViewById(R.id.research);
-        try{
-            ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
-            //connect = connectionHelper.connectionclass("10.0.2.2", "postgres", "postgres", "", "5432");
-            connect = connectionHelper.connectionclass("45.155.170.1", "project_oop", "postgres", "VvBqZ6gshP", "24");
-            if(connect!=null){
+
+        ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
+        //connect = connectionHelper.connectionclass("10.0.2.2", "postgres", "postgres", "Titi01700!", "5432");
+        connect = connectionHelper.connectionclass("45.155.170.63", "project_oop", "postgres", "123456", "5432");
+        if(connect!=null){
                 /*String query = "CREATE SCHEMA IF NOT EXISTS \"25410\"";
                 Statement st = connect.createStatement();
                 ResultSet rs = st.executeQuery(query);*/
 
-                String query = "SELECT * FROM account;";
-                Statement st = connect.createStatement();
-                ResultSet rs = st.executeQuery(query);
+            String query = "SELECT * FROM account FETCH FIRST 1 ROWS ONLY;";
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery(query);
 
-                while (rs.next()) {
-                    TextView.setText(rs.getString(2));
-                }
+            rs.next();
+
+            String s = rs.getString("name");
+
+            rs.next();
+
+            try{
+
+                String ss = rs.getString("id");
+
+                System.out.println(ss);
 
             }
-            else{
-                ConnectionResult = "Check Connection";
-                TextView.setText(ConnectionResult);
+            catch (Exception ex){
+
             }
+
+
+            TextView.setText(s + " ");
+
+
+            while (rs.next()) {
+                //TextView.setText(rs.getString(1));
+            }
+        }
+        else{
+            ConnectionResult = "Check Connection";
+            TextView.setText(ConnectionResult);
+        }
+        /*try{
+
         }
         catch (Exception ex){
 
-        }
+        }*/
     }
 }
