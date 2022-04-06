@@ -43,6 +43,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:contentDescription="searchbutton"
+            android:onClick="onClick"
             android:src="@drawable/ic_research"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toStartOf="@+id/research"
