@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.sql.Statement;
 import java.sql.SQLException;
@@ -20,6 +21,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //for database
+    Connection connect;
+    String ConnectionResult="";
 
     ImageButton searchbutton;
     ImageButton accountbutton;
@@ -123,13 +127,81 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setContentView(R.layout.main_report_activity);
                 break;
             case R.id.researchbutton:
+                try {
+                    test();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
                 //Intent intentLoadNewActivity3 = new Intent(MainActivity.this, researchactivity.class);
                 //startActivity(intentLoadNewActivity3);
                 //setContentView(R.layout.researchactivity);
+                break;
+            case R.id.button_citizz:
+            case R.id.logo_main:
+                //Intent intentLoadNewActivity2 = new Intent(MainActivity.this, reportactivity.class);
+                //startActivity(intentLoadNewActivity2);
+                setContentView(R.layout.activity_main);
                 break;
             /*case R.id.button_forpopup_advert:
                 setContentView(R.layout.popup_advert);
                 break;*/
         }
+    }
+
+    //for database
+    public void test() throws SQLException {
+
+        TextView TextView = (TextView) findViewById(R.id.research);
+        TextView.setText("dedede");
+
+
+        ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
+        //connect = connectionHelper.connectionclass("10.0.2.2", "postgres", "postgres", "Titi01700!", "5432");
+        connect = connectionHelper.connectionclass("45.155.170.63", "project_oop", "postgres", "123456", "5432");
+        if(connect!=null){
+                /*String query = "CREATE SCHEMA IF NOT EXISTS \"25410\"";
+                Statement st = connect.createStatement();
+                ResultSet rs = st.executeQuery(query);*/
+
+            String query = "SELECT * FROM account FETCH FIRST 2 ROWS ONLY;";
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery(query);
+
+            rs.next();
+
+            String s = rs.getString("name");
+
+            rs.next();
+
+            try{
+
+                String ss = rs.getString("id");
+
+                System.out.println(ss);
+
+            }
+            catch (Exception ex){
+
+            }
+
+
+            TextView.setText(s + " ");
+
+
+            while (rs.next()) {
+                //TextView.setText(rs.getString(1));
+            }
+        }
+        else{
+            ConnectionResult = "Check Connection";
+            System.out.println("eeee");
+            TextView.setText(ConnectionResult);
+        }
+        /*try{
+
+        }
+        catch (Exception ex){
+
+        }*/
     }
 }
