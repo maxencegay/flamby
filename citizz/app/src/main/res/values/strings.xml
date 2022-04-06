@@ -8,7 +8,7 @@
         <item>Object/Animal lost</item>
         <item>Accident</item>
         <item>Paid work</item>
-        <item>Other</item>
+        <item>Events</item>
 
     </string-array>
 
@@ -18,5 +18,4 @@
     <!--Announce items-->
 
     <string name="item_cityzz_description">Add a description</string>
-
 </resources>
