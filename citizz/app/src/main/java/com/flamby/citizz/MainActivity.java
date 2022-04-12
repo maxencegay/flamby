@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         searchbutton.setOnClickListener(this);
 
         try {
-            test();
+            database();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //setContentView(R.layout.profile_page);
                 break;
             case R.id.button_add_advert:
-                //Intent intentLoadNewActivity2 = new Intent(MainActivity.this, reportactivity.class);
-                //startActivity(intentLoadNewActivity2);
-                setContentView(R.layout.main_report_activity);
+                Intent intentLoadNewActivity2 = new Intent(MainActivity.this, ReportActivity.class);
+                startActivity(intentLoadNewActivity2);
+                //setContentView(R.layout.main_report_activity);
                 break;
             case R.id.researchbutton:
                 Intent intentLoadNewActivity3 = new Intent(this, Search.class);
@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //setContentView(R.layout.search_page);
                 break;
             case R.id.button_citizz:
-                Intent intentLoadNewActivity2 = new Intent(this, MainActivity.class);
-                startActivity(intentLoadNewActivity2);
+                Intent intentLoadNewActivity4 = new Intent(this, MainActivity.class);
+                startActivity(intentLoadNewActivity4);
                 break;
             /*case R.id.button_forpopup_advert:
                 setContentView(R.layout.popup_advert);
@@ -80,9 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //for database
-    public void test() throws SQLException {
-
-        TextView TextView = (TextView) findViewById(R.id.research);
+    public void database() throws SQLException {
 
         ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
         connect = connectionHelper.connectionclass("45.155.170.63", "project_oop", "postgres", "123456", "5432");
