@@ -12,6 +12,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -45,9 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         searchbutton.setOnClickListener(this);
 
         try {
-            database();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            search();
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -104,6 +111,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else{
             ConnectionResult = "Check Connection";
             System.out.println(ConnectionResult);
+        }
+    }
+
+    public void search() throws IOException, SQLException {
+        try{
+            FileInputStream in = openFileInput("search.txt");
+            BufferedReader br= new BufferedReader(new InputStreamReader(in));
+            if (br.readLine().equals("True")){
+                ConnectionDatabaseHelper connectionHelper = new ConnectionDatabaseHelper();
+                connect = connectionHelper.connectionclass("45.155.170.63", "project_oop", "postgres", "123456", "5432");
+                if(connect!=null){
+                    String mnemonic = br.readLine();
+                    String region = br.readLine();
+                    String department = br.readLine();
+                    String city = br.readLine();
+
+                    region = "Rhône-Alpes";
+                    department = "Ain";
+                    city = "Beynost";
+
+                    String query = "SELECT * FROM advert WHERE (city, region, department, mnemonic) = ('"+ city +"','"+ region +"','"+ department +"','"+ mnemonic +"') ORDER BY id DESC LIMIT 10;";
+                    Statement st = connect.createStatement();
+                    ResultSet rs = st.executeQuery(query);
+
+                    ArrayList<Advert> AdvertArrayList = new ArrayList<>();
+
+                    while (rs.next()) {
+                        Advert advert = new Advert(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9));
+                        AdvertArrayList.add(advert);
+                        System.out.println(rs.getString(2));
+                    }
+
+                    ListView AdvertListview = findViewById(R.id.listview);
+                    AdvertListview.setAdapter(new AdvertListAdapter(this,AdvertArrayList));
+
+                    connect.close();
+                    FileOutputStream out = this.openFileOutput("search.txt", MODE_PRIVATE);
+                    out.write("False".getBytes());
+                    out.close();
+                }
+            }
+            else{
+                try {
+                    database();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        } catch (IOException | SQLException e) {
+            try {
+                database();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
     }
 }

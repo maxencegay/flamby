@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +37,7 @@ public class Profil extends AppCompatActivity {
     private TextView wName, wFirstName, wMail, wRegion, wDepartment, wCity;
     private RadioGroup rgGender;
     private ConstraintLayout parent;
+    private Switch mySwitch;
 
     //for database
     Connection connect;
@@ -148,6 +151,16 @@ public class Profil extends AppCompatActivity {
                 out.write("\n".getBytes());
                 out.write(rs.getString(9).getBytes());
                 out.close();
+
+                FileOutputStream out2 = this.openFileOutput("auto.txt", MODE_PRIVATE);
+
+                if (mySwitch.isChecked()){
+                    out2.write("True".getBytes());
+                }
+                else{
+                    out2.write("False".getBytes());
+                }
+                out2.close();
             }
             catch (Exception ee) {
             }
@@ -259,6 +272,8 @@ public class Profil extends AppCompatActivity {
 
         parent = findViewById(R.id.parent);
 
+        mySwitch = (Switch) findViewById(R.id.switch1);
+
         try {
             FileInputStream in = openFileInput("save.txt");
 
@@ -274,6 +289,7 @@ public class Profil extends AppCompatActivity {
             txtDepartment.setText(br.readLine());
 
             String gender = br.readLine();
+            br.close();
 
             if (gender.equals("Male")){
                 rgGender.check(R.id.Male);
@@ -281,6 +297,18 @@ public class Profil extends AppCompatActivity {
             if (gender.equals("Female")){
                 rgGender.check(R.id.Female);
             }
+
+            FileInputStream in2 = openFileInput("auto.txt");
+            BufferedReader br2= new BufferedReader(new InputStreamReader(in2));
+
+            String bool = br2.readLine();
+            if (bool.equals("True")){
+                mySwitch.setChecked(true);
+            }
+            else{
+                mySwitch.setChecked(false);
+            }
+            br2.close();
 
 
         } catch (Exception e) {
