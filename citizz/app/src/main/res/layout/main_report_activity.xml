@@ -21,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:onClick="onClick"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,73 +46,68 @@
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/item_cityzz_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_report" />
+        app:layout_constraintTop_toBottomOf="@+id/city_report4" />
+
 
     <EditText
-        android:id="@+id/adress_report"
+        android:id="@+id/region_report"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Region"
+        android:hint="@string/item_cityzz_region"
+        app:layout_constraintBottom_toTopOf="@+id/department_report"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_report" />
 
-    <EditText
-        android:id="@+id/city_report2"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="City"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_report" />
 
     <EditText
-        android:id="@+id/city_report"
+        android:id="@+id/department_report"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Depatment"
+        android:hint="@string/item_cityzz_department"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adress_report" />
+        tools:layout_editor_absoluteY="378dp" />
+
 
     <EditText
-        android:id="@+id/city_report3"
+        android:id="@+id/region_report"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Adress"
+        android:hint="@string/item_cityzz_city"
+        app:layout_constraintBottom_toTopOf="@+id/region_report"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_report2" />
+        app:layout_constraintTop_toBottomOf="@+id/department_report" />
+
+    <EditText
+        android:id="@+id/region_report"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/item_cityzz_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_report" />
 
     <EditText
         android:id="@+id/city_report4"
@@ -121,7 +115,6 @@
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Title of the report"
@@ -132,10 +125,10 @@
 
     <View
         android:id="@+id/report_view"
-        android:layout_width="107dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="130dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -156,5 +149,3 @@
         app:layout_constraintTop_toTopOf="@+id/report_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

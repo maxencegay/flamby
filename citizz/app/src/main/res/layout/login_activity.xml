@@ -42,9 +42,9 @@
         style="@style/SubtitleTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="45dp"
         android:text="E-mail address"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -53,101 +53,65 @@
         style="@style/SubtitleTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
         android:text="Password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-
-    <View
-        android:id="@+id/view3"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/lightgrey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
     <EditText
+        android:id="@+id/editText4"
         style="@style/DefaultTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="16"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <View
-        android:id="@+id/view5"
+    <Button
+        android:id="@+id/connect"
+        style="@style/TitleTextStyle"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginBottom="150dp"
         android:background="@color/green"
+        android:onClick="onClick"
+        android:text="CONNECT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-    <View
-        android:id="@+id/view6"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="130dp"
-        android:background="@color/lightgrey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
 
-    <TextView
+    <Button
+        android:id="@+id/noaccount"
         style="@style/SubtitleTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onClick"
         android:text="No account ?"
-        app:layout_constraintBottom_toBottomOf="@+id/view6"
-        app:layout_constraintEnd_toEndOf="@+id/view6"
-        app:layout_constraintStart_toStartOf="@+id/view6"
-        app:layout_constraintTop_toTopOf="@+id/view6" />
-
-    <TextView
-        android:id="@+id/textView7"
-        style="@style/TitleTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Connect"
-        app:layout_constraintBottom_toBottomOf="@+id/view5"
-        app:layout_constraintEnd_toEndOf="@+id/view5"
-        app:layout_constraintStart_toStartOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/view5" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/lightgrey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintEnd_toEndOf="@+id/connect"
+        app:layout_constraintStart_toStartOf="@+id/connect"
+        app:layout_constraintTop_toBottomOf="@+id/connect" />
 
     <EditText
         android:id="@+id/editText"
         style="@style/DefaultTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:ems="16"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
+    <ImageButton
         android:id="@+id/imageFilterView"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="4dp"
+        android:onClick="onClick"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toStartOf="@+id/textView"
