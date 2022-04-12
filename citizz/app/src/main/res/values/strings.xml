@@ -17,5 +17,10 @@
 
     <!--Announce items-->
 
+    <string name="item_cityzz_title">Title of the report</string>
     <string name="item_cityzz_description">Add a description</string>
+    <string name="item_cityzz_region">Region</string>
+    <string name="item_cityzz_department">Department</string>
+    <string name="item_cityzz_city">City</string>
+    <string name="item_cityzz_address">Address</string>
 </resources>

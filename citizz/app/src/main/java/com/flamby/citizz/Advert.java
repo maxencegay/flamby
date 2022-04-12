@@ -30,4 +30,9 @@ public class Advert {
         return title;
     }
     public String getMnemonic() {return mnemonic; }
+    public String getDescription() {return description;}
+    public String getAddress() {return address;}
+    public String getCity() {return city;}
+    public String getRegion() {return region;}
+    public String getDepartment() {return department;}
 }
