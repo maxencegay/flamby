@@ -24,7 +24,7 @@
         android:layout_marginTop="150dp"
         android:ems="8"
         android:inputType="textPersonName"
-        android:text="First name"
+        android:hint="First name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/baniere" />
 
@@ -36,7 +36,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:inputType="textPersonName"
-        android:text="Last name"
+        android:hint="Last name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Name" />
 
@@ -48,7 +48,7 @@
         android:layout_marginEnd="16dp"
         android:ems="8"
         android:inputType="textPersonName"
-        android:text="City"
+        android:hint="City"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/baniere" />
 
@@ -60,7 +60,7 @@
         android:layout_marginTop="20dp"
         android:ems="8"
         android:inputType="textEmailAddress"
-        android:text="E-mail adress"
+        android:hint="E-mail adress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/FirstName" />
 
@@ -96,7 +96,7 @@
         android:ems="8"
         android:layout_marginTop="20dp"
         android:inputType="textPersonName"
-        android:text="Region"
+        android:hint="Region"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Department" />
 
@@ -108,7 +108,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:inputType="textPersonName"
-        android:text="Department"
+        android:hint="Department"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/City" />
 
@@ -143,7 +143,7 @@
         android:inputType="textEmailAddress"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:text="Enter your password"
+        android:hint="Enter your password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Mail" />
 
@@ -155,7 +155,7 @@
         android:layout_marginTop="20dp"
         android:ems="15"
         android:inputType="textEmailAddress"
-        android:text="Confirm your password"
+        android:hint="Confirm your password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
